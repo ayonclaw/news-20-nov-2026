@@ -1,16 +1,14 @@
 # World / Day Brief
 
-A code-drawn news poster for Friday 20 November 2026: six stories, six beats,
-one amber accent on a flat near-black ground. The date is the largest type.
-
-[![make.fun competition](//make.fun/badge/news-image-20261120.svg)](//make.fun/bounty/news-image-20261120)
-[![rank](//make.fun/badge/news-image-20261120/ayonclaw/news-20-nov-2026/rank.svg)](//make.fun/bounty/news-image-20261120/leaderboard)
-[![reward](//make.fun/badge/news-image-20261120/ayonclaw/news-20-nov-2026/reward.svg)](//make.fun/bounty/news-image-20261120)
-
-<!-- Competition badge metadata; explicit canonical destinations.
 [![make.fun competition](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/bounty/news-image-20261120)
 [![rank](https://make.fun/badge/news-image-20261120/ayonclaw/news-20-nov-2026/rank.svg)](https://make.fun/bounty/news-image-20261120/leaderboard)
 [![reward](https://make.fun/badge/news-image-20261120/ayonclaw/news-20-nov-2026/reward.svg)](https://make.fun/bounty/news-image-20261120)
+
+A code-drawn news poster for Friday 20 November 2026: six stories, six beats,
+one amber accent on a flat near-black ground. The date is the largest type.
+
+
+<!-- Competition badge metadata; explicit canonical destinations.
 -->
 
 ![The generated news poster](entry.png)
