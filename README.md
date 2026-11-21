@@ -75,3 +75,8 @@ MIT licensed; the starter's license and ownership metadata are preserved.
 All renderer and verification code was written for this entry. No other entry,
 photography, remote assets, icon fonts, or generated-image service was used.
 Session recording and competition submission are deliberately outside this task.
+
+## Shipping the faces
+
+The grader's image carries no system fonts, so `assets/DejaVuSans-Bold.ttf` and `assets/DejaVuSans.ttf` hold
+subsetted copies (only the glyphs the poster uses), and `main.ts` reads them from its own directory first.

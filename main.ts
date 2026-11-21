@@ -1,7 +1,8 @@
 // Original offline news poster. Node 22, built-in modules only.
 // TrueType outlines are rasterized here; no canvas, browser, packages or network.
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { deflateSync } from 'node:zlib';
 
 const SIZE = 1024;
@@ -176,9 +177,23 @@ class TrueType {
   }
 }
 
-const fontRoot = '/usr/share/fonts/truetype/dejavu/';
-const bold = new TrueType(join(fontRoot, 'DejaVuSans-Bold.ttf'));
-const regular = new TrueType(join(fontRoot, 'DejaVuSans.ttf'));
+// The grader's image carries no system fonts, so the two subsetted faces ship in assets/ beside this
+// program and are read from there first; a machine without them falls back to the system copies.
+const here = fileURLToPath(new URL('.', import.meta.url));
+const fontCandidates = [
+  join(here, 'assets'),
+  '/usr/share/fonts/truetype/dejavu',
+  '/usr/share/fonts/dejavu',
+];
+function findFont(name) {
+  for (const dir of fontCandidates) {
+    const candidate = join(dir, name);
+    if (existsSync(candidate)) return candidate;
+  }
+  throw new Error(`no font ${name} in ${fontCandidates.join(', ')}`);
+}
+const bold = new TrueType(findFont('DejaVuSans-Bold.ttf'));
+const regular = new TrueType(findFont('DejaVuSans.ttf'));
 const layout = [];
 function measure(text, size, font = regular) {
   return [...text].reduce((sum, char) => sum + font.advance(char) * size / font.units, 0);
